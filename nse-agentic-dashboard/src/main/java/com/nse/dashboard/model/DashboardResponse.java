@@ -1,0 +1,1 @@
+package com.nse.dashboard.model;import lombok.Data;@Data public class DashboardResponse { private double support; private double resistance; private String marketBias; private String smartMoney; private String trapSignal;}
