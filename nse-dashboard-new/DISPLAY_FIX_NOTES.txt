@@ -1,0 +1,38 @@
+# Quick Fix for Display Issues
+
+## Issue: Expiry checkboxes showing as colored boxes
+
+This was caused by emoji rendering issues in some environments.
+
+## Fixed:
+- Removed emoji from checkbox labels
+- Changed "🔵" indicator to text
+- Simplified layout with better Streamlit components
+- Used st.subheader() instead of custom HTML
+- Improved button labels ("±10" instead of just "10")
+
+## What Changed:
+
+**Before:**
+```python
+label = f"{exp_date.strftime('%d %b')} ({days}d)"
+if is_weekly:
+    label += " 🔵"  # Emoji causing issues
+```
+
+**After:**
+```python
+label = f"{exp_date.strftime('%d %b %Y')} ({days} days)"
+# Clean, no emoji
+```
+
+## Also Improved:
+1. Better section headers using st.subheader()
+2. Clearer button labels (±10, ±20 instead of just numbers)
+3. Added captions for better UX
+4. Cleaner layout overall
+
+## Result:
+✅ Expiry checkboxes now show proper labels
+✅ Better visual hierarchy
+✅ More professional appearance

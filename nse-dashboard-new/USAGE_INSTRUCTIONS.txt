@@ -1,0 +1,89 @@
+# NIFTY Options Dashboard - Complete Fixed Version
+
+## ✅ What's Fixed:
+
+1. **Auto-parsing on startup** - Automatically detects and parses BhavCopy files
+2. **Cross-platform paths** - Works on Windows, Mac, and Linux
+3. **No manual processing needed** - Just place BhavCopy in nsedata folder and refresh
+
+## 📂 Usage:
+
+### Step 1: Extract the zip file
+
+### Step 2: Place your BhavCopy file
+```
+your-project-folder/
+├── dashboard.py
+├── nse_option_chain.py
+├── requirements.txt
+└── nsedata/
+    └── BhavCopy_NSE_FO_0_0_0_20260327_F_0000.csv  ← Your file here
+```
+
+### Step 3: Run the dashboard
+```bash
+streamlit run dashboard.py
+```
+
+## 🚀 What Happens:
+
+1. Dashboard starts
+2. **Automatically detects** BhavCopy file in nsedata folder
+3. **Automatically parses** it into individual expiry CSV files:
+   - NIFTY_2026_03_30.csv
+   - NIFTY_2026_04_07.csv
+   - etc.
+4. **Loads the data** and shows the dashboard
+5. Success message: "✅ Parsed 18 expiries from BhavCopy_NSE_FO_0_0_0_20260327_F_0000.csv"
+
+## 📋 Key Features:
+
+- ✅ Auto-detects BhavCopy files in nsedata folder
+- ✅ Auto-parses on startup (only once)
+- ✅ Creates individual expiry CSV files
+- ✅ Shows sample data if no files found
+- ✅ Cross-platform (Windows/Mac/Linux)
+- ✅ No manual commands needed
+- ✅ No file upload UI needed (automatic!)
+
+## 🔄 To Update Data:
+
+1. Delete old NIFTY_*.csv files from nsedata
+2. Place new BhavCopy file
+3. Refresh browser (F5)
+
+## 🎯 File Structure After Running:
+
+```
+nsedata/
+├── BhavCopy_NSE_FO_0_0_0_20260327_F_0000.csv  ← Original
+├── NIFTY_2026_03_30.csv  ← Auto-created
+├── NIFTY_2026_04_07.csv  ← Auto-created
+├── NIFTY_2026_04_13.csv  ← Auto-created
+└── ... (all expiries)
+```
+
+## 💡 Smart Logic:
+
+- If BhavCopy found + No NIFTY files → **Auto-parse**
+- If BhavCopy found + NIFTY files exist → **Skip parsing** (already done)
+- If no BhavCopy → **Show sample data** for demo
+
+## 📝 Requirements:
+
+```
+streamlit==1.55.0
+plotly==6.6.0
+pandas==2.3.3
+```
+
+Install with:
+```bash
+pip install -r requirements.txt
+```
+
+## ✨ That's It!
+
+No more manual commands!
+No more file upload UI!
+Just drop BhavCopy → Run dashboard → Done! 🎉
